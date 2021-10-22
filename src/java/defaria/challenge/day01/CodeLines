@@ -1,0 +1,117 @@
+    Scanner scan = new Scanner(System.in);
+
+
+    String inputString = scan.nextLine();
+
+
+	scan.close();
+
+
+
+	System.out.println("Hello, World.");
+    System.out.println(inputString);
+
+
+   ------------ ex 2-------------
+
+   String name = "Baldur";
+   int a = 4;
+
+       System.out.printf("%-10s%013d", name, a);
+
+
+________ ex 3____________
+
+        for(int i=0;i<t;i++)
+        {
+
+            try
+            {
+                long x=sc.nextLong();
+                System.out.println(x+" can be fitted in:");
+                if(x>=-128 && x<=127)System.out.println("* byte");
+
+                if(x > Short.MIN_VALUE && x <= Short.MAX_VALUE)System.out.println("* short");
+                if(x > Integer.MIN_VALUE && x <= Int.MAX_VALUE)System.out.println("* int");
+                if(x > Long.MIN_VALUE && x < Long.MAX_VALUE)System.out.println("* long");
+
+                //Complete the code
+            }
+            catch(Exception e)
+            {
+                System.out.println(sc.next()+" can't be fitted anywhere.");
+            }
+
+        }
+
+ ------ ex 4 --- reading from stream(EOF)
+
+ public class Solution {
+
+     public static void main(String[] args) {
+         int count = 0;
+         Scanner n = new Scanner(System.in);
+
+         while(n.hasNext()){
+             count++;
+             System.out.println(count + " " + n.nextLine());
+         }
+
+
+         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+     }
+ }
+
+ ---------------Initialization Blocks-----------------
+
+ public class Solution {
+ //all variables must be static
+ }
+     static Scanner scan = new Scanner(System.in);
+     static boolean flag = true;
+     static int B = scan.nextInt();
+     static int H = scan.nextInt();
+//allows for better manipulation of data
+ static{
+     try{
+         if(B < 0 || H < 0){
+         flag = false;
+         throw new Exception("Breadth and height must be positive");
+         }
+     }catch(Exception e){
+         System.out.println(e);
+     }
+ }
+
+
+ // Write your code here
+
+ public static void main(String[] args){
+ 		if(flag){
+ 			int area=B*H;
+ 			System.out.print(area);
+ 		}
+
+ 	}//end of main
+
+ }//
+
+ --------Working with LocalDate-----------
+
+ public class Main {
+
+
+     public static void main(String[] args) {
+         int month=1;
+         int day=15;
+         int year=2015;
+
+         LocalDate time = LocalDate.of(year, month, day);
+
+         String DayValue = String.valueOf(time.getDayOfWeek());
+
+         System.out.println(DayValue);
+
+     }
+
+ }
