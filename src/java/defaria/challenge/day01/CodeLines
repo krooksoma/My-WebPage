@@ -115,3 +115,164 @@ ________ ex 3____________
      }
 
  }
+
+------------String Formatter-----------
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Add value: \n");
+        double payment = scanner.nextDouble();
+        scanner.close();
+
+        Locale indiaLocale = new Locale("en", "IN");
+        String india = NumberFormat.getInstance(indiaLocale).format(payment);
+        String us = NumberFormat.getInstance(Locale.US).format(payment);
+        String china = NumberFormat.getInstance(Locale.CHINA).format(payment);
+        String france = NumberFormat.getInstance(Locale.FRANCE).format(payment);
+
+
+        // Write your code here.
+
+        System.out.println("US: " + us);
+        System.out.println("India: " + india);
+        System.out.println("China: " + china);
+        System.out.println("France: " + france);
+
+ -------------calculating cost----------Math.round
+
+
+    public static void main(String[] args) {
+        int taxes = 7;
+        int tip = 15;
+        double cost = 39.90;
+
+        solve(cost, tip, taxes);
+
+
+    }
+
+    public static void solve(double meal_cost, int tip, int taxes){
+        double totalAmount = meal_cost + (meal_cost * tip/100) + (meal_cost * taxes/100);
+        System.out.println(Math.round(totalAmount));
+    }
+
+----------Manipulating String Case----------
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        sc.close();
+
+        int totalLength = A.length() + B.length();
+
+        System.out.println(totalLength);
+        System.out.println(compareStrings(A, B));
+
+        System.out.printf("%s %s", toCamelCase(A), toCamelCase(B));
+
+        /* Enter your code here. Print output to STDOUT. */
+
+    }
+    public static String toCamelCase(String string){
+        String a = string.substring(1);
+        String b = String.valueOf(string.charAt(0)).toUpperCase();
+
+        return b + a;
+    }
+
+    public static String compareStrings(String A, String B){
+        int comparison = A.compareTo(B);
+
+        if(comparison > 0){
+            return "Yes";
+        }
+
+        return "No";
+    }
+}
+
+
+__________Palindrome___________
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter a string");
+        String A = sc.next();
+        sc.close();
+
+        checkPalindrome(A);
+    }
+
+    public static void checkPalindrome(String a){
+        String b = "";
+
+        for (int i = a.length() - 1; i >= 0 ;i--){
+            b += String.valueOf(a.charAt(i));
+        }
+
+        if(a.equalsIgnoreCase(b)){
+            System.out.println("The given String is a Palindrome");
+        }else{
+            System.out.println("This String is not a palindrome");
+        }
+    }
+
+}
+
+-------------checking for smallest and largest portion--------
+
+public class Solution {
+
+    public static String getSmallestAndLargest(String s, int k) {
+
+    String sequence = s.substring(0, k);
+    String smallest = sequence;
+    String largest = sequence;
+
+    // Complete the function
+
+    for(int i = 1; i <= (s.length() - k); i++){
+        sequence = s.substring(i, (i + k));
+
+        if(sequence.compareTo(smallest) < 0){
+            smallest = sequence;
+        }
+        if(sequence.compareTo(largest) > 0){
+            largest = sequence;
+        }
+    }
+
+
+        return smallest + "\n" + largest;
+
+    }
+}
+
+-------anagrams -------------
+
+        if (a.length() != b.length()) {
+            return false;
+        }
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        int sum = 0;
+        for (char c = 'a'; c <= 'z'; c++) {
+            for (int i=0; i<a.length(); i++) {
+                if (a.charAt(i) == c) {
+                    sum++;
+                }
+                if (b.charAt(i) == c) {
+                    sum--;
+                }
+            }
+            if (sum != 0) {
+                return false;
+            }
+        }
+        return true;
