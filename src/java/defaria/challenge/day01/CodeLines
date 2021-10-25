@@ -255,24 +255,57 @@ public class Solution {
 }
 
 -------anagrams -------------
-
+        //first check for their length, if do not match they are not anagrams
         if (a.length() != b.length()) {
             return false;
         }
+        // convert both strings to lower case
         a = a.toLowerCase();
         b = b.toLowerCase();
         int sum = 0;
+        //creates a loop to run thru all alphabet
         for (char c = 'a'; c <= 'z'; c++) {
+
+        //for loop to run thru each character in string
             for (int i=0; i<a.length(); i++) {
+            //if the current character in a matches the character it adds to sum
                 if (a.charAt(i) == c) {
                     sum++;
                 }
+            //if the current character in b matches the character it subtracts from the sum
                 if (b.charAt(i) == c) {
                     sum--;
                 }
             }
+            //if sum is zero when this block is finished it means the characters
+           are the same and in same number
             if (sum != 0) {
                 return false;
             }
         }
         return true;
+
+--------TESTING STRING FOR REGEX PATTERN----------
+
+import java.util.Scanner;
+import java.util.regex.*;
+
+public class Solution
+{
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		int testCases = Integer.parseInt(in.nextLine());
+		while(testCases>0){
+			String pattern = in.nextLine();
+            try{
+                Pattern.compile(pattern);
+                System.out.println("Valid");
+            }catch(PatternSyntaxException e){
+                System.out.println("Invalid");
+            }
+            testCases--;
+          	//Write your code
+		}
+	}
+}
+
