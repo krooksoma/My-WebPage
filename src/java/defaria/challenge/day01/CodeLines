@@ -309,3 +309,170 @@ public class Solution
 	}
 }
 
+-------------Hacker Rank String Evens and Odds-----------
+public class Solution {
+
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        String even , odds;
+
+
+
+        int numberOfTests = scan.nextInt();
+        scan.nextLine();
+
+        for(int i = 0; i < numberOfTests; i++){
+            even = odds = "";
+            String S = scan.nextLine();
+            for(int j = 0; j < S.length(); j++){
+                if(j % 2 == 0){
+                    even += S.charAt(j);
+                }else{
+                    odds += S.charAt(j);
+                }
+            }
+            System.out.println(even + " " + odds);
+        }
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+
+
+}
+
+------------My Even and Odds Approach------------
+
+public static Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        int numberOfTests = getNumberOfCases();
+//        loop to get the test string
+        queryForStrings(numberOfTests);
+
+    }
+
+    public static int getNumberOfCases(){
+        System.out.println("How many test cases?");
+        int i = scan.nextInt();
+        if(i <= 1 || i >= 10){
+            System.out.println("Invalid input. The number of tests must be at least 2. Try again");
+            return 0;
+        }
+        scan.nextLine();
+        return i;
+    }
+
+    public static void queryForStrings(int numberOfTests){
+        String evens, odds;
+
+        for(int i = 0; i < numberOfTests;i++){
+            evens = odds = "";
+
+            System.out.println("\nProvide a String: ");
+            String newTestString = scan.nextLine();
+
+            if(newTestString.length() <=2 || newTestString.length() >= 10000){
+                System.out.println("Invalid entry. String must be at least 3 characters long. Try Again");
+                return;
+            }
+
+            for(int j = 0; j < newTestString.length(); j++){
+                if(j % 2 == 0){
+                    evens += newTestString.charAt(j);
+                }else{
+                    odds += newTestString.charAt(j);
+                }
+
+            }
+            System.out.println(evens + " " + odds);
+
+        }
+    }
+
+---------------Checking for prime number with Big Integers----------
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String n = reader.readLine();
+        reader.close();
+
+        BigInteger a = new BigInteger(n);
+
+        if(a.isProbablePrime(1)){
+            System.out.println("prime");
+        }else{
+            System.out.println("not prime");
+        }
+
+    }
+}
+
+------------------Adding and multiplying BigIntegers----------
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        BigInteger a = new BigInteger(reader.readLine());
+        BigInteger b = new BigInteger(reader.readLine());
+
+        BigInteger c = a.add(b);
+        BigInteger d = a.multiply(b);
+
+        reader.close();
+
+        System.out.println(c);
+        System.out.println(d);
+
+    }
+}
+
+---------------Working with 2d Arrays-------------
+------hourglass sum-----------
+
+public class Solution {
+       public static void main(String [] args) {
+        Scanner scan = new Scanner(System.in);
+        int arr[][] = new int[6][6];
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 6; col++) {
+                arr[row][col] = scan.nextInt();
+            }
+        }
+        scan.close();
+
+        System.out.println(maxHourglass(arr));
+    }
+    public static int maxHourglass(int[][] arr){
+        // initializes variable max with the minimum value an integer can assume.
+        int max = Integer.MIN_VALUE;
+        // row < 4 determines the hourglass height to 3 rows
+        for(int row = 0; row < 4; row++){
+            // determines col no wider than 3 columnc
+            for (int col = 0; col < 4; col++){
+                // call finsum to calculate hourglass values
+                int sum = findSum(arr, row, col);
+                // compare value found with current max
+                max = Math.max(max, sum);
+            }
+        }
+        return max;
+    }
+
+    public static int findSum(int[][] arr, int row, int col){
+    // sum all value using the hourglass shape
+        int sum = arr[row+0][col+0] + arr[row+0][col+1] + arr[row+0][col+2]
+                                    + arr[row+1][col+1] +
+                  arr[row+2][col+0] + arr[row+2][col+1] + arr[row+2][col+2];
+
+        return sum;
+    }
+
+}
