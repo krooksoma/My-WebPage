@@ -476,3 +476,30 @@ public class Solution {
     }
 
 }
+
+----------Sum 1 items and array to match target value----------
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+    return findTotal(nums, target);
+
+
+    }
+
+    public static int[] findTotal(int[] nums, int target){
+        //pointer on first element
+        for(int i = 0; i < nums.length - 1; i++){
+          //loop over next elements and check for target
+            for (int j = i + 1; j < nums.length ; j++){
+                //if current on both match target
+                if(nums[i] + nums[j] == target){
+                    //print string
+                    System.out.println("[" + i + "," + j + "]");
+                 return new int[]{i,j};
+                }
+            }
+        }
+        return null;
+    }
+
+}

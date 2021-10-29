@@ -4,25 +4,33 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        BigInteger a = new BigInteger(reader.readLine());
-        BigInteger b = new BigInteger(reader.readLine());
+        int  n = Integer.parseInt(bufferedReader.readLine().trim());
 
-        BigInteger c = a.add(b);
-        BigInteger d = a.multiply(b);
+        String[] arrTemp = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
-        reader.close();
+        List<Integer> arr = new ArrayList<>();
 
-        System.out.println(c);
-        System.out.println(d);
+        for (int i = 0; i < n; i++){
+            int arrItem = Integer.parseInt(arrTemp[i]);
+            arr.add(arrItem);
+        }
 
+        bufferedReader.close();
+
+        for(int i = 0; i < n; i ++){
+            System.out.print(arr.get(i) + " ");
+        }
     }
+
+
 }
