@@ -195,36 +195,6 @@ public class Solution {
 }
 
 
-__________Palindrome___________
-
-
-public class Main {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter a string");
-        String A = sc.next();
-        sc.close();
-
-        checkPalindrome(A);
-    }
-
-    public static void checkPalindrome(String a){
-        String b = "";
-
-        for (int i = a.length() - 1; i >= 0 ;i--){
-            b += String.valueOf(a.charAt(i));
-        }
-
-        if(a.equalsIgnoreCase(b)){
-            System.out.println("The given String is a Palindrome");
-        }else{
-            System.out.println("This String is not a palindrome");
-        }
-    }
-
-}
-
 -------------checking for smallest and largest portion--------
 
 public class Solution {
@@ -255,6 +225,7 @@ public class Solution {
 }
 
 -------anagrams -------------
+
         //first check for their length, if do not match they are not anagrams
         if (a.length() != b.length()) {
             return false;
@@ -455,9 +426,9 @@ public class Solution {
         int max = Integer.MIN_VALUE;
         // row < 4 determines the hourglass height to 3 rows
         for(int row = 0; row < 4; row++){
-            // determines col no wider than 3 columnc
+            // determines col no wider than 3 columns guarantees no EOF error
             for (int col = 0; col < 4; col++){
-                // call finsum to calculate hourglass values
+                // call findsum to calculate hourglass values
                 int sum = findSum(arr, row, col);
                 // compare value found with current max
                 max = Math.max(max, sum);
@@ -480,8 +451,7 @@ public class Solution {
 ----------Sum 1 items and array to match target value----------
 
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-    return findTotal(nums, target);
+    public int[] twoSum(int[] nums, int target) {    return findTotal(nums, target);
 
 
     }
@@ -502,4 +472,132 @@ class Solution {
         return null;
     }
 
+}
+
+-------------Map, HashMap----------
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        Map<String,Integer> myMap = new HashMap<String,Integer>();
+        for(int i = 0; i < n; i++){
+            String name = in.next();
+            int phone = in.nextInt();
+            in.nextLine();
+            myMap.put(name, phone);
+        }
+        while(in.hasNext()){
+            String s = in.next();
+            if(myMap.get(s) == null)
+                System.out.println("Not found");
+            else {
+                System.out.println(s + "=" + myMap.get(s));
+            }
+        }
+        in.close();
+    }
+}
+
+--------Factorial---------
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int x = Integer.parseInt(reader.readLine().trim());
+
+        int result = factorial(x);
+        System.out.println(result);
+
+    }
+
+    public static int factorial(int n){
+        if(n <1){
+            return 1;
+        }
+        return (n * factorial(n -1));
+    }
+}
+
+__________ convert to binary and return longest sequence _______
+
+       public static void main(String[] args) throws IOException {
+            Scanner read = new Scanner(System.in);
+
+            int n = read.nextInt();
+
+            read.close();
+
+
+            int rem=0,s=0,t=0;
+
+            while(n > 0){
+//                takes module
+                rem = n % 2;
+//                divide number by two
+                n = n/2;
+//                checks if the remainder is equal 1 to add to count
+                if(rem == 1){
+//                    adds to count
+                    s++;
+//                    if s is bigger than t, t gets its value
+                    if(s > t){
+                        t = s;
+                    }
+                }else{
+                    s = 0;
+                }
+            }
+        }
+
+
+--------------Convert to binary and display it----------------
+
+public static String convertToBinary(int n) {
+    String convertedString = "";
+
+    while(n >= 2){
+        if(n % 2 != 0){
+            convertedString += "1";
+            n = (n -1)/2;
+            convertToBinary(n);
+        }else{
+            convertedString += "0";
+            n = n/2;
+            convertToBinary(n/2);                }
+
+    }
+
+    return convertedString;
+
+}
+
+public static String adjustBinaryOrder(int n){
+    String x = convertToBinary(n);
+    String adjustedArray = "";
+
+    if( n  > 100){
+        adjustedArray += 1;
+    }
+    for(int i = x.length() - 1; i >=0; i --){
+
+        adjustedArray += x.charAt(i);
+    }
+    return adjustedArray;
+}
+
+public static int checkForSequence(String s){
+    int number = 0;
+    int x = 0;
+
+    while(x < s.length()-1){
+        if(s.charAt(x) == 1){
+            number++;
+            x++;
+        }
+    }
+
+
+    return number;
 }
