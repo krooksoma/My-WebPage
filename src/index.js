@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./style.css"
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Menu from "./components/Menu";
-import "./index.css"
+import Card from "./components/Card"
+import person_data from "./person_data";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     {" "}
-    <Header />
-    <Menu />    
+      <Header/>
+      <Card cardInfo={person_data}/>
     {" "}
-    <Footer />
   </React.StrictMode>
 );

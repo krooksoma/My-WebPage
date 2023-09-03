@@ -1,0 +1,14 @@
+.card-item{
+    width: auto;
+    text-align: center;
+    list-style-type: none;
+}
+.card-frame{
+    border: 2px solid black;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.card-width{
+    width: 18rem;
+}
