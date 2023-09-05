@@ -1,7 +1,10 @@
-const messages = [
-"Learn React",
-"Apply for Jobs",
-"Invest your new Income "
+const initialItems = [
+    {
+        id:1, description: "Passports", quantity: 2, packed: false 
+    },
+    {
+        id:1, description: "Socks", quantity: 3, packed: true
+    }
 ]
 
-export default messages;
+export default initialItems;
