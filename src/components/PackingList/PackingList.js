@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Item from '../Item/Item';
-import initialItems from "../../resources/data.js"
 
-function PackingList () {
+
+function PackingList ({items, onDeleteItem, onToggleItem}) {
 
    return (
     <div className="list" data-testid="PackingList">
       <ul>
-      {initialItems.map((X)=>
-        <Item item={X}/>
+      {items.map((X)=>
+        <Item item={X} key={X.id} onDeleteItem={onDeleteItem}
+        onToggleItem={onToggleItem}/>
       )}
       </ul>
     </div>

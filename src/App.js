@@ -5,13 +5,26 @@ import Footer from "./components/Footer/Footer";
 import PackingList from "./components/PackingList/PackingList"
 
 function App() {
-  
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item){
+    setItems((items) => [...items, item]);
+  }
+
+  function handleDeleteItem(id){
+    setItems(items.filter(item => item.id !== id));
+  }
+
+  function handleToggleItem(id){
+    setItems(item => items.map(
+      item => item.id === id ? {...item, packed: !item.packed}: item))
+  }
   return (
     <div className="app">
       <Logo/>
-      <Form/>
-      <PackingList />
-      <Footer />
+      <Form onAddItems={handleAddItems}/>
+      <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem}/>
+      <Footer items={items}/>
     </div>
   );
 }
