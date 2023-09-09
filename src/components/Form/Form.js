@@ -3,16 +3,14 @@ import { useState } from "react";
 
 function Form({onAddItems}) {
   const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
   
 
   
   function handleSubmit(e) {
     e.preventDefault();
 
-    if(!description) return;
-
-    
+    if(!description) return;    
 
     const newItemForm = {
       id: crypto.randomUUID(),
