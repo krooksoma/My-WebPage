@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Logo from "./components/Logo/Logo";
-import Form from "./components/Form/Form";
-import Footer from "./components/Footer/Footer";
-import PackingList from "./components/PackingList/PackingList"
+import Accordion from "./components/Accordion/Accordion"
+import faq from "./resources/questionsData"
 
 function App() {
   const [items, setItems] = useState([]);
@@ -21,10 +19,7 @@ function App() {
   }
   return (
     <div className="app">
-      <Logo/>
-      <Form onAddItems={handleAddItems}/>
-      <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem}/>
-      <Footer items={items}/>
+      <Accordion data={faq}/>
     </div>
   );
 }
