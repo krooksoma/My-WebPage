@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+
 import AccordionItem from "../AccordionItem/AccordionItem";
 
-const Accordion = (props) => {
+const Accordion = ({ data }) => {
   return (
     <div className="accordion">
-      {props.map((el, index) => (
-        <AccordionItem num={index} title={el.title} text={el.text} />
+      {data.map((el, index) => (
+        <AccordionItem num={index} title={el.title} text={el.text} key={index} />
       ))}
     </div>
   );
