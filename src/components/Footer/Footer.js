@@ -11,7 +11,7 @@ function Footer({items}) {
   
   return (
     <footer className="stats">
-            <em>{`🧳 You have ${totalItemsNumber} items on your list, and you already packed ${packedItems.length} (${percentage} %)`}</em>
+            <em>{percentage !== 100 ?`🧳 You have ${totalItemsNumber} items on your list, and you already packed ${packedItems.length} (${percentage} %)`: "You are ready to go ✈️"}</em>
     </footer>
   );
 }
