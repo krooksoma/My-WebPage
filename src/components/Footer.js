@@ -15,9 +15,6 @@ function Footer() {
       <h4 className="mt-3 text-danger">
         Mama Mia Pizza pizza pizza!!!
       </h4>
-      
-
-
       {isOpen ? (
         <Order name={openHour}/>
         ) : 
